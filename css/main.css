@@ -17,7 +17,7 @@ body {
 
 
 .p {
-    position: relative;
+    position: absolute;
     width: 280px;
     height: 280px;
     margin-left: 420px;
@@ -26,16 +26,18 @@ body {
     clip-path: polygon(50% 0%, 76% 51%, 50% 100%, 25% 50%);
     border-radius: 40%;
     animation: Loader 1.4s infinite ;
-    z-index: -1;
+    z-index: 1;
  
 }
 
 @keyframes Loader {
     0% {
+        
         transform: rotate(-360deg);
     }
 
     100% {
+        
         transform: rotate(360deg);
     }
 }
@@ -85,7 +87,7 @@ input:focus {
 
 
 
-button {
+.btn-search {
     margin-left: 2px;
     width: 150px;
     height: 60px;
@@ -105,13 +107,13 @@ button {
     transition: 0.5s ease;
 }
 
-button:hover {
+.btn-search:hover {
     transform: translateY(3px);
     box-shadow: 5px 5px 5px 1px rgb(98 98 98 / 71%);
     transition: 0.5s ease;
 }
 
-button img {
+.btn-search img {
     width: 40px;
     margin: 17px 20px 1px 1px;
 }
@@ -168,3 +170,42 @@ ul div {
     background-image: linear-gradient(to top, rgb(0, 6, 55), transparent);
     height:  400px;
 }
+
+button {
+    cursor: pointer;
+}
+
+.button-01 {
+    width: 100px;
+    height: 35px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 255, 0.87);
+    opacity: 0.8;
+    color: #fff;
+    position: absolute;
+  }
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    display: none;
+  }
+  .modal.show {
+    display: flex;
+  }
+  
+  .modal__content {
+    max-width: 900px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px;
+    word-spacing: 3px;
+    letter-spacing: 0.2px;
+    line-height: 25px;
+  }
