@@ -17,16 +17,9 @@
         <h1>KINOPORTAL</h1>
          
             <form data-form>
-                <input type="text" name="input-name" >
+                <input type="text" name="input-name" placeholder="Search">
                 <button class="btn-search" type="submit"><img src="./img/283-2838053_searching-comments-clipart.png" alt="search-img"></button>
             </form>
-
-            <ul class="movie-ul" data-movie-list>
-
-            </ul>
-  
-            
-              <!-- <button type="button" data-modal-open ="#test-modal" class="button-01">Info</button> -->
             
 
             <div class="modal" id="test-modal" data-modal>
@@ -39,6 +32,19 @@
                     
                 </div>
             </div>
+
+            <template data-template>
+                <ul class="movie-ul" data-movie-list>
+                    <li data-li>
+                        <div class="box-model">
+                            <img data-img>
+                        </div>
+                        <h3 data-name></h3>
+                    </li>
+                </ul>
+               
+                
+            </template>
 
 
     </div>

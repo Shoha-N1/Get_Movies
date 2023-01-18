@@ -7,6 +7,9 @@ let elList = document.querySelector("[data-movie-list]");
 let elDIvInfo = document.querySelector("[data-div-info]")
 let elInfo = document.querySelector("[data-info]")
 let elLi = document.querySelector("[data-li]")
+let elDivLi = document.querySelector("[data-div-li]")
+let elTemplate = document.querySelector("[data-template]")
+
 
 elForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -15,7 +18,8 @@ elForm.addEventListener("submit", (evt) => {
   let name = formData.get("input-name");
 
   searchMovies(name);
-  movieInfo(movie)
+  elList.prepend(createDiv(movie))
+  
 });
 
 async function searchMovies(query) {
@@ -30,12 +34,29 @@ function renderMovies(movies) {
   elList.innerHTML = "";
   let html = "";
   movies.forEach((movie) => {
-    html += `<li data-li > <div><img src= "${movie.Poster}" alt="${movie.Title}" /> <button type="button" data-modal-open ="#test-modal" class="button-01">Info</button> </div> <h3>${movie.Title}</h3> </li>`;
+    html += `<li> <div data-div-li><img src= "${movie.Poster}" alt="${movie.Title}" /> <button type="button" data-modal-open ="#test-modal" class="button-01">Info</button> </div> <h3>${movie.Title}</h3> </li>`;
    
-   
-    elDIvInfo += elDIvInfo.innerHTML = elInfo.textContent = `${movie.Title} , ${movie.Type} , ${movie.imdbID}`;
+    renderInfo(movie)
     
   });
   elList.innerHTML = html;
 }
 
+
+function renderInfo(movie){
+  
+ elDIvInfo.innerHTML = elInfo.textContent = `${movie.Title} , ${movie.Type} , ${movie.imdbID}`;
+}
+
+
+function createDiv(movie) {
+  
+  let elCard = elTemplate.content.cloneNode(true);
+ 
+
+  elCard.querySelector("[data-img]").src = `${IMG_URL}`;
+  elCard.querySelector("[data-name]").textContent = movie.Title;
+ 
+  return elCard
+  
+}
