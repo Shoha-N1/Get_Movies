@@ -171,13 +171,27 @@ h3 {
     max-width: 250px;
     background-image: linear-gradient(to top, rgb(0, 6, 55), transparent);
     height:  400px;
+    transition: 0.5s ease;
 }
+
+.movie-ul div:hover .button-01 {
+    display: block;
+    transition: 0.5s ease;
+}
+
+.movie-ul div:hover  {
+    background-color: rgba(22, 22, 22, 0.945);
+    transition: 0.5s ease;
+}
+
 
 button {
     cursor: pointer;
+    border: none;
 }
 
 .button-01 {
+    display: none;
     width: 100px;
     height: 35px;
     margin-top: 20px;
