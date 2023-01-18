@@ -4,7 +4,7 @@ let IMG_URL = `http://img.omdbapi.com/?apikey=${API_KEY}`;
 
 let elForm = document.querySelector("[data-form");
 let elList = document.querySelector("[data-movie-list]");
-let elTemplate = document.querySelector("[data-template]");
+let elDIvInfo = document.querySelector("[data-div-info]")
 let elInfo = document.querySelector("[data-info]")
 let elLi = document.querySelector("[data-li]")
 
@@ -15,10 +15,11 @@ elForm.addEventListener("submit", (evt) => {
   let name = formData.get("input-name");
 
   searchMovies(name);
+  movieInfo(movie)
 });
 
 async function searchMovies(query) {
-  elList.innerHTML = `<p class="p"></p>`;
+  elList.innerHTML = `<p class="p">🟡</p>`;
   let res = await fetch(`${API_URL}&s=${query}`);
   let searchResult = await res.json();
 
@@ -30,9 +31,11 @@ function renderMovies(movies) {
   let html = "";
   movies.forEach((movie) => {
     html += `<li data-li > <div><img src= "${movie.Poster}" alt="${movie.Title}" /> <button type="button" data-modal-open ="#test-modal" class="button-01">Info</button> </div> <h3>${movie.Title}</h3> </li>`;
-    elLi += elInfo.textContent = movie.Type 
-    // html += elInfo.textContent = movie.Year
+   
+   
+    elDIvInfo += elDIvInfo.innerHTML = elInfo.textContent = `${movie.Title} , ${movie.Type} , ${movie.imdbID}`;
+    
   });
-
   elList.innerHTML = html;
 }
+

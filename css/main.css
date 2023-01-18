@@ -10,6 +10,8 @@ body {
     margin-bottom: 10px;
 }
 
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -18,14 +20,14 @@ body {
 
 .p {
     position: absolute;
-    width: 280px;
-    height: 280px;
+    width: 80px;
+    height: 80px;
     margin-left: 420px;
     margin-top: 70px;
-    background-image: radial-gradient(black,blue);
-    clip-path: polygon(50% 0%, 76% 51%, 50% 100%, 25% 50%);
+    /* background-image: radial-gradient(black,blue);
+    clip-path: polygon(50% 0%, 76% 51%, 50% 100%, 25% 50%); */
     border-radius: 40%;
-    animation: Loader 1.4s infinite ;
+    animation: Loader 2s infinite ;
     z-index: 1;
  
 }
@@ -43,7 +45,7 @@ body {
 }
 
 
-li {
+.movie-ul li {
     margin-top: 60px;
     margin-left: 40px;
     list-style: none;
@@ -118,14 +120,14 @@ input:focus {
     margin: 17px 20px 1px 1px;
 }
 
-ul {
+.movie-ul {
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
 }
 
-ul li img {
+.movie-ul li img {
     max-width: 250px;
     height: 400px;
     position: relative;
@@ -162,7 +164,7 @@ h3 {
     padding-right: 10px;
 }
 
-ul div {
+.movie-ul div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,7 +203,9 @@ button {
   }
   
   .modal__content {
+    text-align: center;
     max-width: 900px;
+    max-height: 500px;
     background-color: #fff;
     border-radius: 5px;
     padding: 30px;
