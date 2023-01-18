@@ -19,7 +19,7 @@ elForm.addEventListener("submit", (evt) => {
 });
 
 async function searchMovies(query) {
-  elList.innerHTML = `<p class="p">🟡</p>`;
+  elList.innerHTML = `<h1 class="h1">Loading...</h1>`;
   let res = await fetch(`${API_URL}&s=${query}`);
   let searchResult = await res.json();
 
