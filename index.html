@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,44 +8,44 @@
     <title>Movies</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapjhnhgvis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
     <div class="container">
-       
-        <h1>KINOPORTAL</h1>
-         
-            <form data-form>
-                <input type="text" name="input-name" placeholder="Search">
-                <button class="btn-search" type="submit"><img src="./img/283-2838053_searching-comments-clipart.png" alt="search-img"></button>
-            </form>
-            
 
-            <div class="modal" id="test-modal" data-modal>
-                <div class="modal__content" data-modal-content>
-                    <button data-modal-close type="button">X</button>
-                    <div data-div-info>
-                        <div data-info></div>
-                    </div>
-                     
-                    
+        <h1>KINOPORTAL</h1>
+
+        <form data-form>
+            <input type="text" name="input-name" placeholder="Search">
+            <button class="btn-search" type="submit"><img src="./img/283-2838053_searching-comments-clipart.png"
+                    alt="search-img"></button>
+        </form>
+
+
+        <div class="modal" id="test-modal" data-modal>
+            <div class="modal__content" data-modal-content>
+                <button class="btn-iks" data-modal-close type="button">❌</button>
+                <div data-div-info>
+                    <div class="div-info" data-info></div>
                 </div>
             </div>
+        </div>
 
-            <template data-template>
-                <ul class="movie-ul" data-movie-list>
-                    <li data-li>
-                        <div class="box-model">
-                            <img data-img>
-                        </div>
-                        <h3 data-name></h3>
-                    </li>
-                </ul>
-               
-                
-            </template>
+        <ul data-list class="movie-ul"></ul>
+
+        <template data-template>
+
+            <li data-li>
+                <div data-div-li class="box-model">
+                    <img>
+                    <button type="button" data-modal-open="#test-modal" class="button-01">Info</button>
+                </div>
+                <h3></h3>
+            </li>
+        </template>
 
 
     </div>
@@ -52,4 +53,5 @@
     <script src="./js/main.js"></script>
     <script src="./js/modal.js"></script>
 </body>
+
 </html>
