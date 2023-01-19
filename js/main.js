@@ -19,11 +19,7 @@ elForm.addEventListener("submit", (evt) => {
   let name = formData.get("input-name");
 
   searchMovies(name);
-  elList.prepend(createDiv(movie));
-  
- 
 });
-
 
 async function searchMovies(query) {
   elList.innerHTML = `<h1 class="h1">Loading...</h1>`;
@@ -31,8 +27,6 @@ async function searchMovies(query) {
   let searchResult = await res.json();
 
   renderMovies(searchResult.Search);
-  
-  
 }
 
 
@@ -40,16 +34,22 @@ function renderMovies(movies) {
   elList.innerHTML = "";
   let html = ""
   movies.forEach(movie => {
-    html = elLi =  elInfo.textContent = ` Name = "${movie.Title}" , Type = "${movie.Type}" , Movie_Id = "${movie.imdbID}" ;  ${movie.Poster}`;
+    
+     html += ` <li data-li>
+                <div data-div-li class="box-model">
+                    <img src="${movie.Poster}">
+                    <button type="button" data-modal-open="#test-modal" class="button-01">Info</button>
+                </div>
+                <h3>${movie.Title}</h3>
+            </li> `
+             elLi += elInfo.textContent = ` Name = "${movie.Title}" , Type = "${movie.Type}" , Movie_Id = "${movie.imdbID}" ;  ${movie.Poster}`;
   })
-  movies.filter((movie) => elList.append(createDiv(movie))) 
-  elList = html
+  
+  elList.innerHTML = html;
 }
 
 
 function createDiv(movie) {
-  
-  
   let elCard = elTemplate.content.cloneNode(true);
 
   elCard.querySelector("img").src = movie.Poster;
