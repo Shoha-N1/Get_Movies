@@ -1,6 +1,6 @@
 let API_KEY = "d51655be";
-let API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
-let IMG_URL = `http://img.omdbapi.com/?apikey=${API_KEY}`;
+let API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
+let IMG_URL = `https://img.omdbapi.com/?apikey=${API_KEY}`;
 
 let elForm = document.querySelector("[data-form");
 let elList = document.querySelector("[data-list]");
