@@ -18,18 +18,42 @@
         <h1>KINOPORTAL</h1>
 
         <form data-form>
-            <input type="text" name="input-name" placeholder="Search">
+            <input required class="input-search" type="text" name="input-name" placeholder="Search">
+            <input required min="1950" max="2023" class="input-year" type="number" name="input-year" placeholder="Year">
+            <select required name="select-type" class="select">
+                <option selected>Movie type</option>
+                <option value="movie">movie</option>
+                <option value="series">series</option>
+                <option value="episode">episode</option>
+              </select>
             <button class="btn-search" type="submit"><img src="./img/283-2838053_searching-comments-clipart.png"
                     alt="search-img"></button>
         </form>
 
+        <nav aria-label="Movie pagination" >
+            <ul class="pagination" data-movie-pagination>
+
+            </ul>
+        </nav>
 
         <div class="modal" id="test-modal" data-modal>
             <div class="modal__content" data-modal-content>
                 <button class="btn-iks" data-modal-close type="button">❌</button>
-                <div data-div-info>
-                    <div class="div-info" data-info></div>
-                </div>
+               
+                    <div class="div-info" data-info>
+                        <h2 data-title></h2>
+                        <h4 data-year></h4>
+                        <h4 data-rated></h4>
+                        <h4 data-released></h4>
+                        <h4 data-runtime></h4>
+                        <h4 data-genre></h4>
+                        <h4 data-director></h4>
+                        <h4 data-metascore></h4>
+                        <h4 data-type></h4>
+                        <h4 data-id></h4>
+                    </div>
+                    
+                
             </div>
         </div>
 

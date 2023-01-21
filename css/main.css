@@ -10,7 +10,27 @@ body {
     margin-bottom: 10px;
 }
 
+h2,h4 {
+    margin: 0;
+    padding: 0;   
+}
 
+li {
+    list-style: none;
+}
+
+img {
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .container {
     max-width: 1200px;
@@ -41,11 +61,11 @@ form {
     display: flex;
 }
 
-input {
+.input-search {
     border: 1px solid black;
     background: #dedede;
     margin-top: 50px;
-    width: 950px;
+    width: 700px;
     height: 35px;
     border-radius: 0px 12px;
     display: flex;
@@ -64,6 +84,41 @@ input:focus {
     border: 2px solid #0071de;
 }
 
+.input-year {
+    border: 1px solid black;
+    background: #dedede;
+    margin-top: 49px;
+    width: 100px;
+    height: 37px;
+    border-radius: 0px 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 21px;
+    padding: 10px 25px;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+}
+
+
+.select {
+    border: 1px solid black;
+    background: #dedede;
+    margin-top: 48px;
+    width: 150px;
+    height: 60px;
+    border-radius: 0px 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+
+}
 
 
 .btn-search {
@@ -71,7 +126,7 @@ input:focus {
     width: 150px;
     height: 60px;
     background-repeat: no-repeat;
-    margin-top: 48px;
+    margin-top: 46px;
     padding: 1px 1px 20px 20px;
     display: flex;
     align-items: center;
@@ -110,8 +165,8 @@ input:focus {
 }
 
 .movie-ul li img {
-    max-width: 250px;
-    height: 400px;
+    width: 260px;
+    height: 360px;
     position: relative;
     z-index: -1;
 }
@@ -150,9 +205,9 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 250px;
+    width: 257px;
     background-image: linear-gradient(to top, rgb(0, 6, 55), transparent);
-    height:  400px;
+    height: 371px;
     transition: 0.5s ease;
 }
 
@@ -223,3 +278,110 @@ button {
     background-color: transparent;
   }
 
+.loader {
+    width: 250px;
+    height: 250px;
+    margin-left: 445px;
+    margin-top: 40px;
+    border-radius: 50%;
+}
+
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    color: #0d6efd;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .page-link {
+        transition: none
+    }
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: #0a58ca;
+    background-color: #e9ecef;
+    border-color: #dee2e6
+}
+
+.page-link:focus {
+    z-index: 3;
+    color: #0a58ca;
+    background-color: #e9ecef;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25)
+}
+
+.page-item:not(:first-child) .page-link {
+    margin-left: -1px
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6
+}
+
+.page-link {
+    padding: .375rem .75rem
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem
+}
+
+.pagination-lg .page-link {
+    padding: .75rem 1.5rem;
+    font-size: 1.25rem
+}
+
+.pagination-lg .page-item:first-child .page-link {
+    border-top-left-radius: .3rem;
+    border-bottom-left-radius: .3rem
+}
+
+.pagination-lg .page-item:last-child .page-link {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem
+}
+
+.pagination-sm .page-link {
+    padding: .25rem .5rem;
+    font-size: .875rem
+}
+
+.pagination-sm .page-item:first-child .page-link {
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem
+}
+
+.pagination-sm .page-item:last-child .page-link {
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem
+}
