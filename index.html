@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
@@ -18,46 +19,41 @@
         <h1>KINOPORTAL</h1>
 
         <form data-form>
-            <input required class="input-search" type="text" name="input-name" placeholder="Search">
-            <input required min="1950" max="2023" class="input-year" type="number" name="input-year" placeholder="Year">
-            <select required name="select-type" class="select">
-                <option selected>Movie type</option>
+            <input class="input-search" type="text" name="input-name" placeholder="Search" data-movie>
+            <input min="1950" max="2023" class="input-year" type="number" name="input-year" placeholder="Year">
+            <select name="select-type" class="select">
+                <option selected value="">Movie type</option>
                 <option value="movie">movie</option>
-                <option value="series">series</option>
-                <option value="episode">episode</option>
-              </select>
-            <button class="btn-search" type="submit"><img src="./img/283-2838053_searching-comments-clipart.png"
-                    alt="search-img"></button>
+                <option value="series">Series</option>
+                <option value="episode">Episode</option>
+            </select>
         </form>
 
-        <nav aria-label="Movie pagination" >
-            <ul class="pagination" data-movie-pagination>
-
-            </ul>
-        </nav>
+        <nav aria-label="Movie pagination" class="page-nav">
+            <ul data-movie-pagination class="pagination"></ul>
+          </nav>
 
         <div class="modal" id="test-modal" data-modal>
             <div class="modal__content" data-modal-content>
                 <button class="btn-iks" data-modal-close type="button">❌</button>
-               
-                    <div class="div-info" data-info>
-                        <h2 data-title></h2>
-                        <h4 data-year></h4>
-                        <h4 data-rated></h4>
-                        <h4 data-released></h4>
-                        <h4 data-runtime></h4>
-                        <h4 data-genre></h4>
-                        <h4 data-director></h4>
-                        <h4 data-metascore></h4>
-                        <h4 data-type></h4>
-                        <h4 data-id></h4>
-                    </div>
-                    
-                
+
+                <div class="div-info" data-info>
+                    <h2 data-title></h2>
+                    <h4 data-year></h4>
+                    <h4 data-rated></h4>
+                    <h4 data-released></h4>
+                    <h4 data-runtime></h4>
+                    <h4 data-genre></h4>
+                    <h4 data-director></h4>
+                    <h4 data-metascore></h4>
+                    <h4 data-type></h4>
+                    <h4 data-id></h4>
+                </div>
             </div>
         </div>
 
         <ul data-list class="movie-ul"></ul>
+        <div data-slider-div class="slider-div"></div>
 
         <template data-template>
 
@@ -69,13 +65,12 @@
                 <h3></h3>
             </li>
         </template>
-
-
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script src="./js/main.js"></script>
-    <script src="./js/modal.js"></script>
+    <!-- <script src="./js/slider.js"></script> -->
 </body>
 
 </html>
-

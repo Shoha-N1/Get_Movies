@@ -11,29 +11,67 @@ let elDivLi = document.querySelector("[data-div-li]")
 let elTemplate = document.querySelector("[data-template]")
 let elButton = document.querySelector('[data-modal-open]')
 let elPagination = document.querySelector("[data-movie-pagination]")
+let elSlider = document.querySelector("[data-photo-slider]")
+let elDiv = document.querySelector("[data-slider-div]")
+const elInputMovie = document.querySelector("[data-movie]");
+const formData = new FormData(elForm);
+
+elInputMovie.addEventListener(
+  "keyup",
+  debounce((evt) => onInputKeyUp(evt), 300)
+);
 
 
-elForm.addEventListener("submit", (evt) => {
+elForm.addEventListener("change", (evt) => {
   evt.preventDefault();
 
-  let formData = new FormData(elForm);
-  let name = formData.get("input-name");
-  let year = formData.get("input-year");
-  let type = formData.get("select-type");
-
-  searchMovies(name,year,type);
+  if (elInputMovie.value.length < 3) return;
+  searchMovies();
 });
 
-async function searchMovies(query, year, type, page = 1) {
+document.addEventListener("click", (evt) => {
+
+  onModalButtonClick(evt)
+  onModalOutsideClick(evt)
+  onModalCLoseClick(evt)
+  onPageClick(evt)
+})
+
+function debounce(func, timeout = 300) {
+  let timer;
+
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
+
+
+function onInputKeyUp(evt) {
+  if (elInputMovie.value.length < 3) return;
+  searchMovies();
+}
+
+
+// let name = formData.get("input-name");
+// let year = formData.get("input-year");
+// let type = formData.get("select-type");
+
+// searchMovies(name,year,type);
+
+async function searchMovies( page = 1) {
   elList.innerHTML = `<img class="loader" src="./img/Spinner-1s-200px.svg" >`;
   let res = await fetch(`${API_URL}&s=${query}&y=${year}&type=${type}&page=${page}`);
   let searchResult = await res.json();
 
-  if (searchResult.Error){
-    alert(searchResult.Error)
-    return
-  }
+    if (searchResult.Error){
+      console.log(searchResult.Error);
+      return
+    }
 
+ 
   renderMovies(searchResult.Search);
 
   renderPagination(Math.ceil(+searchResult.totalResults / 10), query, year,type, page)
@@ -57,13 +95,12 @@ function renderMovies(movies) {
                 <h3>${movie.Title}</h3>
             </li> `
 
-            elList.append(createDiv(movie))
           }) 
   elList.innerHTML = html;
 }
 
 
-function renderPagination(totalPages, query, page){
+function renderPagination(totalPages, query,  page){
 
   elPagination.innerHTML = "";
   let html = "";
@@ -85,14 +122,6 @@ function renderPagination(totalPages, query, page){
 }
 
 
-document.addEventListener("click", (evt) => {
-
-  onModalButtonClick(evt)
-  onModalOutsideClick(evt)
-  onModalCLoseClick(evt)
-  onPageClick(evt)
-})
-
 function onModalCLoseClick(evt) {  
   let el = evt.target.closest("[data-modal-close]")
 
@@ -108,7 +137,6 @@ async function onModalButtonClick(evt) {
 
   if(!el) return;
 
-  let modalSel = el.dataset.modalOpen;
   let movieId = el.dataset.movieId;
 
   await createDiv(movieId)
@@ -132,8 +160,7 @@ function onPageClick(evt){
   if(!el) return;
 
   evt.preventDefault();
-
-  searchMovies(el.dataset.movieQuery, el.dataset.moviePage)
+  searchMovies(el.dataset.moviePage)
 }
 
 
