@@ -2,75 +2,65 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies</title>
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tv shows</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="website icon" href="./img/images.png" type="png" />
 </head>
 
 <body>
-    <div class="container">
-
-        <h1>KINOPORTAL</h1>
-
-        <form data-form>
-            <input class="input-search" type="text" name="input-name" placeholder="Search" data-movie>
-            <input min="1950" max="2023" class="input-year" type="number" name="input-year" placeholder="Year">
-            <select name="select-type" class="select">
-                <option selected value="">Movie type</option>
-                <option value="movie">movie</option>
-                <option value="series">Series</option>
-                <option value="episode">Episode</option>
-            </select>
-        </form>
-
-        <nav aria-label="Movie pagination" class="page-nav">
-            <ul data-movie-pagination class="pagination"></ul>
-          </nav>
-
-        <div class="modal" id="test-modal" data-modal>
-            <div class="modal__content" data-modal-content>
-                <button class="btn-iks" data-modal-close type="button">❌</button>
-
-                <div class="div-info" data-info>
-                    <h2 data-title></h2>
-                    <h4 data-year></h4>
-                    <h4 data-rated></h4>
-                    <h4 data-released></h4>
-                    <h4 data-runtime></h4>
-                    <h4 data-genre></h4>
-                    <h4 data-director></h4>
-                    <h4 data-metascore></h4>
-                    <h4 data-type></h4>
-                    <h4 data-id></h4>
-                </div>
-            </div>
-        </div>
-
-        <ul data-list class="movie-ul"></ul>
-        <div data-slider-div class="slider-div"></div>
-
-        <template data-template>
-
-            <li data-li>
-                <div data-div-li class="box-model">
-                    <img>
-                    <button type="button" data-modal-open="#test-modal" class="button-01">Info</button>
-                </div>
-                <h3></h3>
-            </li>
-        </template>
+  <div class="container">
+    <div class="header-box">
+      <a href="/">
+        <img src="./img/images.png" alt="Logo" width="50px" height="50px" />
+      </a>
     </div>
+    <form data-form>
+      <input type="text" data-movie name="name" placeholder="Tv Show Name" class="input-name w-25" />
+      <input type="number" name="year-movie" placeholder="Year" class="input-year__movie" />
+      <select name="type-movie" class="select">
+        <option selected value="">Movie type</option>
+        <option value="movie">Movie</option>
+        <option value="series">Series</option>
+        <option value="episode">Episode</option>
+      </select>
+    </form>
+    <ul data-ul></ul>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
-    <script src="./js/main.js"></script>
-    <!-- <script src="./js/slider.js"></script> -->
+    <nav aria-label="Movie pagination" class="page-nav">
+      <ul data-movie-pagination class="pagination"></ul>
+    </nav>
+    <div class="my-modal" id="test-modal" data-modal>
+      <div class="modal-text" data-modal-content>
+        <button class="btn btn-close mt-2 close-btn__modal" data-modal-close></button>
+        <div class="spinner-border text-primary d-none my-modal__spinner" data-spinner role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div data-infos>
+          <li data-title></li>
+          <div data-year></div>
+          <div data-rated></div>
+          <div data-released></div>
+          <div data-runtime></div>
+          <div data-genre></div>
+          <div data-director></div>
+          <div data-writer></div>
+          <div data-actors></div>
+          <div data-plot></div>
+          <div data-language></div>
+          <div data-awards></div>
+          <div data-ImdbRatings></div>
+          <div data-id></div>
+          <div data-type></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/omdb.js"></script>
 </body>
 
 </html>
