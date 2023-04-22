@@ -46,8 +46,8 @@ function onInputKeyUp(evt) {
 
 async function searchMovies(page = 1) {
   const { s, y, type } = getFormData();
-  elUl.innerHTML = `<div class="spinner-border text-primary spinner__loading" role="status">
-  <span class="visually-hidden">Loading...</span>
+  elUl.innerHTML = `<div class="spinner__loading">
+  <span>   <img src="./img/Spinner-1s-200px.gif" alt="spinner-loader"></span>
 </div>`;
   let res = await fetch(`${API_URL}&s=${s}&page=${page}&y=${y}&type=${type}`);
   let searchResult = await res.json();
@@ -77,10 +77,10 @@ function renderMovies(movies) {
         ? "https://via.placeholder.com/300x445"
         : movie.Poster;
     html += `
-      <div class="card-box shadow-lg mb-5 bg-body-tertiary rounded">
+      <div class="card-box">
         <img class="img-card" src=${moviePosterUrl} alt=${movie.Title} />
         <h3 class="mb-1 h3-title">${movie.Title}</h3>
-        <button class="btn btn-danger w-100 mb-2" data-info-btn="#test-modal" data-movie-id=${movie.imdbID}>Info</button>
+        <button class="btn btn-n" data-info-btn="#test-modal" data-movie-id=${movie.imdbID}>!</button>
       </div>
     `;
   });
@@ -140,7 +140,6 @@ function OnModalCloseClick(evt) {
 
   if (!el) return;
 
-  //   el.parentElement.parentElement.classList.remove("show");
   el.closest("[data-modal]").classList.remove("show");
 }
 
