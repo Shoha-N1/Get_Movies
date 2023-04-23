@@ -119,7 +119,7 @@ form {
 }
 
 .spinner__loading {
-  margin-left: 0px;
+  margin-left: -10px;
 }
 
 .select {
