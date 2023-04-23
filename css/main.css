@@ -104,11 +104,26 @@ form {
 .close-btn__modal {
   transform: translateY(-30px);
   position: fixed;
-  margin-left: 600px;
-  width: 21px;
-  height: 21px;
-  color: blue;
+  margin-left: 597px;
+  margin-top: 12px;
+  font-size: 19px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
   display: block;
+}
+
+.div-info {
+  display: flex;
+}
+
+.info-div {
+  margin-left: 20px;
+  font-size: 17px;
+  line-height: 23px;
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .input-name {

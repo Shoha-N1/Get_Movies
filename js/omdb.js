@@ -7,6 +7,7 @@ const elDivInfo = document.querySelector("[data-infos]");
 const elPagination = document.querySelector("[data-movie-pagination]");
 const elInputMovie = document.querySelector("[data-movie]");
 const formData = new FormData(elForm);
+const elTitle = document.querySelector("[data-title]")
 
 elInputMovie.addEventListener(
   "keyup",
@@ -59,7 +60,7 @@ async function searchMovies(page = 1) {
 
 function onInputKeyUp(evt) {
   if (elInputMovie.value.length < 3) return;
-  
+
   searchMovies();
 }
 
@@ -81,7 +82,7 @@ function renderMovies(movies) {
       <div class="card-box">
         <img class="img-card" src=${moviePosterUrl} alt=${movie.Title} />
         <div class="div-h3">
-        <h3 class="mb-1 h3-title">${movie.Title}</h3>
+        <h3 class="mb-1 h3-title" title="${movie.Title}">${movie.Title}</h3>
         </div>
         <button class="btn btn-n" data-info-btn="#test-modal" data-movie-id=${movie.imdbID}>!</button>
       </div>
@@ -126,7 +127,6 @@ function getFormData() {
 }
 
 async function OnBtnInfoClick(evt) {
-
   let el = evt.target.closest("[data-info-btn]");
   if (!el) return;
 
@@ -165,6 +165,11 @@ function onPageClick(evt) {
 
 async function fillModal(movieId) {
   let movie = await getMovie(movieId);
+  let moviePosterUrl =
+  movie.Poster === "N/A"
+    ? "https://via.placeholder.com/300x445"
+    : movie.Poster;
+  elDivInfo.querySelector("[data-img]").src = moviePosterUrl
   elDivInfo.querySelector("[data-title]").textContent = `Name: ${movie.Title}`;
   elDivInfo.querySelector("[data-year]").textContent = `Year: ${movie.Year}`;
   elDivInfo.querySelector("[data-rated]").textContent = `Rated: ${movie.Rated}`;
@@ -194,6 +199,5 @@ async function fillModal(movieId) {
   elDivInfo.querySelector(
     "[data-ImdbRatings]"
   ).textContent = `IMDb Rating: ${movie.imdbRating}`;
-  elDivInfo.querySelector("[data-id]").textContent = `IMDb Id: ${movie.imdbID}`;
   elDivInfo.querySelector("[data-type]").textContent = `Type: ${movie.Type}`;
 }
