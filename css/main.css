@@ -54,22 +54,23 @@ form {
 }
 
 .card-box:hover {
-  background-color: #00ffffa8;
+  background-color: #00ffffc5;
   transition: 0.5s ease;
 }
 
 .card-box:hover h3 {
   display: block;
-  transition: 0.5s ease;
+  width: 235px;
+  height: 56px;
 }
 
 .card-box:hover .btn-n {
   display: block;
   transition: 0.5s ease;
-  margin-top: -216px;
+  margin-top: -252px;
   margin-left: 231px;
-  height: 36px;
-  width: 21px;
+  height: 37px;
+  width: 22px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -118,7 +119,7 @@ form {
 }
 
 .spinner__loading {
-  margin-left: 480px;
+  margin-left: 0px;
 }
 
 .select {
@@ -153,16 +154,24 @@ form {
   border-color: #aa9a9a;
 }
 
+.div-h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -244px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+
 .h3-title {
   display: none;
-  font-weight: 400;
-  font-size: 20px;
-  transition: 0.5s ease;
+  font-size: 22px;
   max-width: 250px;
-  background: black;
-  color: white;
+  overflow: hidden;
+  color: rgb(8, 8, 8);
   margin-left: 5px;
-  margin-top: -246px;
 }
 
 .btn-n {

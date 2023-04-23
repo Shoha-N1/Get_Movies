@@ -39,11 +39,6 @@ function debounce(func, timeout = 300) {
   };
 }
 
-function onInputKeyUp(evt) {
-  if (elInputMovie.value.length < 3) return;
-  searchMovies();
-}
-
 async function searchMovies(page = 1) {
   const { s, y, type } = getFormData();
   elUl.innerHTML = `<div class="spinner__loading">
@@ -60,6 +55,12 @@ async function searchMovies(page = 1) {
   renderMovies(searchResult.Search);
 
   renderPagination(Math.ceil(+searchResult.totalResults / 10), page);
+}
+
+function onInputKeyUp(evt) {
+  if (elInputMovie.value.length < 3) return;
+  
+  searchMovies();
 }
 
 async function getMovie(movieId) {
@@ -79,7 +80,9 @@ function renderMovies(movies) {
     html += `
       <div class="card-box">
         <img class="img-card" src=${moviePosterUrl} alt=${movie.Title} />
+        <div class="div-h3">
         <h3 class="mb-1 h3-title">${movie.Title}</h3>
+        </div>
         <button class="btn btn-n" data-info-btn="#test-modal" data-movie-id=${movie.imdbID}>!</button>
       </div>
     `;
@@ -123,12 +126,11 @@ function getFormData() {
 }
 
 async function OnBtnInfoClick(evt) {
-  let el = evt.target.closest("[data-info-btn]");
 
+  let el = evt.target.closest("[data-info-btn]");
   if (!el) return;
 
   let movieId = el.dataset.movieId;
-
   await fillModal(movieId);
 
   let modalSelector = el.dataset.infoBtn;
