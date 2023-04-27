@@ -6,6 +6,12 @@
   list-style: none;
 }
 
+.div-img img{
+  margin-left: 31%;
+  height: 50px;
+  margin-top: 2%;
+}
+
 .ul-movie {
   display: flex;
   align-items: center;
