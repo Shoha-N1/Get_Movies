@@ -202,5 +202,6 @@ form {
 @media (max-width: 347px) {
   form {
     margin-left: 120px;
+    transform: scale(0.7);
   }
 }
