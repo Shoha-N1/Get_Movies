@@ -198,3 +198,9 @@ form {
 .btn-n {
   display: none;
 }
+
+@media (max-width: 347px) {
+  form {
+    margin-left: 120px;
+  }
+}
