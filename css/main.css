@@ -6,7 +6,7 @@
   list-style: none;
 }
 
-.div-img img{
+.div-img img {
   margin-left: 31%;
   height: 50px;
   margin-top: 2%;
@@ -128,8 +128,8 @@ form {
   font-size: 17px;
   line-height: 23px;
   white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .input-name {
@@ -201,7 +201,35 @@ form {
 
 @media (max-width: 347px) {
   form {
-    margin-left: 120px;
-    transform: scale(0.7);
+    margin-left: 22px;
   }
+
+  .input-name {
+    padding: 5px;
+    width: 333px;
+  }
+
+  .input-year__movie {
+    padding: 2px 4px;
+    margin-left: -19px;
+    width: 57px;
+    margin-top: 6px;
+  }
+
+  .select {
+    margin-top: 6px;
+    margin-left: -17px;
+    font-size: 14px;
+    width: 60px;
+    margin-right: 15px;
+    padding: 2px;
+
+  }
+
+  .div-img img {
+    margin-left: 30px;
+    margin-top: 35px;
+    height: 40px;
+  }
+
 }
